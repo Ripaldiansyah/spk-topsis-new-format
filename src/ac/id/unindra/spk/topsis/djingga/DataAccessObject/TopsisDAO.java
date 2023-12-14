@@ -6,9 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import ac.id.unindra.spk.topsis.djingga.models.AlternativeTableModel;
 import ac.id.unindra.spk.topsis.djingga.models.TopsisModel;
 import ac.id.unindra.spk.topsis.djingga.models.TopsisTableListModel;
 import ac.id.unindra.spk.topsis.djingga.models.TopsisTableRankModel;
@@ -20,7 +18,6 @@ import javafx.collections.ObservableList;
 
 public class TopsisDAO implements TopsisService {
     private Connection conn = new DatabaseConnection().getConnection();
-    private NotificationManager notificationManager = new NotificationManager();
 
     @Override
     public String[] getData() {

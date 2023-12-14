@@ -3,11 +3,7 @@ package ac.id.unindra.spk.topsis.djingga.DataAccessObject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-import ac.id.unindra.spk.topsis.djingga.models.TopsisModel;
 import ac.id.unindra.spk.topsis.djingga.models.UserModel;
 import ac.id.unindra.spk.topsis.djingga.models.UserTableModel;
 import ac.id.unindra.spk.topsis.djingga.utilities.DatabaseConnection;
@@ -20,7 +16,7 @@ public class UserDAO implements UserService {
 
     public static final ObservableList<UserTableModel> ObservableList = null;
     private Connection conn = new DatabaseConnection().getConnection();
-    UserModel userModel = new UserModel();
+    
 
     @Override
     public ObservableList<UserTableModel> getDataUser(UserModel userModel) {
