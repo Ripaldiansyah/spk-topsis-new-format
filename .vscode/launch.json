@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "ac.id.unindra.spk.topsis.djingga.app.Main",
+            "projectName": "spk-topsis-new-format_5880ed1"
+        },
+        {
+            "type": "java",
             "name": "Main_test",
             "request": "launch",
             "mainClass": "ac.id.unindra.spk.topsis.djingga.app.Main_test",
@@ -73,6 +80,13 @@
             "mainClass": "ac.id.unindra.spk.topsis.djingga.app.Main",
             "projectName": "spk-topsis-with-javaFX_7947e34d",
             "vmArgs": "--module-path \"D:/JAVA JDK/javafx-sdk-21.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "Run with AppMap",
+            "request": "launch",
+            "mainClass": "",
+            "vmArgs": "-javaagent:${userHome}\\.appmap\\lib\\java\\appmap.jar"
         }
     ]
 }

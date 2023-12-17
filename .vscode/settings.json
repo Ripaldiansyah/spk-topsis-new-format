@@ -75,5 +75,14 @@
             "lib/JFX/materialfx-11.13.5.jar",
             "lib/JFX/materialfx-11.16.1.jar"
         ]
-    }
+    },
+    "java.test.config": [
+        {
+            "name": "Test with AppMap",
+            "vmArgs": [
+                "-javaagent:${userHome}\\.appmap\\lib\\java\\appmap.jar",
+                "-Dappmap.output.directory=${command:appmap.getAppmapDir}"
+            ]
+        }
+    ]
 }

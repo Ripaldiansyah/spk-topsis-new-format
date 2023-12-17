@@ -1,10 +1,9 @@
-package ac.id.unindra.spk.topsis.djingga.DataAccessObject;
+package ac.id.unindra.spk.topsis.djingga.controllers;
 
-import ac.id.unindra.spk.topsis.djingga.controllers.ResultTopsisViewController;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
+import ac.id.unindra.spk.topsis.djingga.DataAccessObject.TopsisDAO;
 import ac.id.unindra.spk.topsis.djingga.models.TopsisModel;
 import ac.id.unindra.spk.topsis.djingga.models.TopsisTableListModel;
 import ac.id.unindra.spk.topsis.djingga.services.TopsisService;
@@ -25,7 +24,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
-public class TopsisListDAO implements Initializable {
+public class TopsisListController implements Initializable {
     @FXML
     private HBox actionHbox;
 
