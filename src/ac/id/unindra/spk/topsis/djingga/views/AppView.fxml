@@ -21,7 +21,7 @@
                   <Insets bottom="10.0" left="20.0" top="5.0" />
                </VBox.margin>
             </ImageView>
-            <MFXButton fx:id="dashboardButton" alignment="TOP_LEFT" prefHeight="40.0" prefWidth="172.0" stylesheets="@../resources/css/styles.css" text="Dashboard" textFill="WHITE">
+            <MFXButton fx:id="dashboardButton" alignment="TOP_LEFT" onMouseClicked="#dashboard" prefHeight="40.0" prefWidth="172.0" stylesheets="@../resources/css/styles.css" text="Dashboard" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="19.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -174,7 +174,7 @@
                   <Insets left="35.0" />
                </padding>
             </MFXButton>
-            <MFXButton fx:id="settingButton" alignment="TOP_LEFT" prefHeight="40.0" prefWidth="172.0" stylesheets="@../resources/css/styles.css" text="Pengaturan" textFill="WHITE">
+            <MFXButton fx:id="settingButton" alignment="TOP_LEFT" onMouseClicked="#settingView" prefHeight="40.0" prefWidth="172.0" stylesheets="@../resources/css/styles.css" text="Pengaturan" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="19.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                      <image>

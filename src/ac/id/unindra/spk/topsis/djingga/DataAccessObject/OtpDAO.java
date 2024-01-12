@@ -94,7 +94,6 @@ public class OtpDAO implements OTPService {
                 stat = conn.prepareStatement(sqlUpdate);
                 stat.setString(1, OTPModel.getStoredOTP());
                 stat.setString(2, OTPModel.getIdOTP());
-              
 
             } else {
                 stat = conn.prepareStatement(sqlInsert);
@@ -130,21 +129,20 @@ public class OtpDAO implements OTPService {
     }
 
     @Override
-    public void sendOTP(RegisterModel registerModel, OTPModel OTPModel) {
+    public void sendOTP( OTPModel OTPModel) {
         String sql = "SELECT pengguna.email, OTP.idOTP , OTP.OTPVerifikasi1 FROM pengguna INNER JOIN OTP ON pengguna.idOTP = OTP.idOTP WHERE pengguna.idPengguna = ?";
         PreparedStatement stat = null;
         ResultSet rs = null;
 
         try {
             stat = conn.prepareStatement(sql);
-            stat.setString(1, registerModel.getIdUser());
+            stat.setString(1, OTPModel.getIdUser());
             rs = stat.executeQuery();
 
             if (rs.next()) {
-                registerModel.setEmail(rs.getString("email"));
                 OTPModel.setStoredOTP(rs.getString("OTPVerifikasi1"));
                 OTPModel.setIdOTP(rs.getString("idOTP"));
-                EmailSender.sendOTP(registerModel.getEmail(), OTPModel.getStoredOTP());
+                EmailSender.sendOTP(rs.getString("email"), OTPModel.getStoredOTP());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -187,6 +185,50 @@ public class OtpDAO implements OTPService {
             }
         }, 90, 1, TimeUnit.SECONDS);
 
+    }
+
+    @Override
+    public boolean checkOTPSetting(OTPModel OTPModel) {
+        PreparedStatement stat = null;
+        boolean valid = false;
+        String sql = "SELECT OTP.OTPVerifikasi1 FROM pengguna INNER JOIN OTP ON pengguna.idOTP = OTP.idOTP WHERE pengguna.idPengguna = ?";
+        ResultSet rs = null;
+
+        try {
+            stat = conn.prepareStatement(sql);
+            stat.setString(1, OTPModel.getIdUser());
+            rs = stat.executeQuery();
+
+            if (rs.next()) {
+                OTPModel.setStoredOTP(rs.getString("OTPVerifikasi1"));
+
+
+                if (OTPModel.getStoredOTP() != null) {
+                    if (OTPModel.getStoredOTP().equalsIgnoreCase(OTPModel.getEnteredOTP())) {
+                        valid = true;
+                    } else {
+                        NotificationManager.notification("Peringatan", "Kode OTP yang dimasukan tidak sesuai");
+                    }
+                } else {
+                    NotificationManager.notification("Peringatan", "Silahkan minta OTP kembali.");
+                }
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stat != null) {
+                    stat.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return valid;
     }
 
 }

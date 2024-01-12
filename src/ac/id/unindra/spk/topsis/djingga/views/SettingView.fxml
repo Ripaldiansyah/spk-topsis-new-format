@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="829.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ac.id.unindra.spk.topsis.djingga.controllers.SettingViewController">
+   <children>
+      <Text layoutX="30.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pengaturan">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
+      <AnchorPane fx:id="SettingMenu" layoutX="21.0" layoutY="94.0" prefHeight="478.0" prefWidth="789.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="76.0" prefWidth="789.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Text fx:id="userNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama User" wrappingWidth="621.2802734375">
+                           <font>
+                              <Font name="Roboto Medium" size="22.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="idText" strokeType="OUTSIDE" strokeWidth="0.0" text="Id " />
+                     </children>
+                     <HBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <MFXButton fx:id="editPageButton" depthLevel="LEVEL3" onMouseClicked="#editAccount" prefHeight="31.0" prefWidth="121.0" style="-fx-background-color: BLACK;" styleClass="mfx-button" stylesheets="@../resources/css/styles.css" text="EDIT AKUN" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </MFXButton>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="userEditPage" layoutX="21.0" layoutY="94.0" prefHeight="478.0" prefWidth="789.0">
+         <children>
+            <HBox layoutX="8.0" layoutY="6.0" prefHeight="33.0" prefWidth="322.0" style="-fx-border-color: black;">
+               <children>
+                  <MFXButton fx:id="passwordMenu" onMouseClicked="#userEditPassword" prefHeight="49.0" prefWidth="107.0" text="Kata Sandi" />
+                  <MFXButton fx:id="emailMenu" onMouseClicked="#userEditEmail" prefHeight="49.0" prefWidth="107.0" text="Email" />
+                  <MFXButton fx:id="profileMenu" onMouseClicked="#userEditProfile" prefHeight="49.0" prefWidth="107.0" text="Profile" />
+               </children>
+            </HBox>
+            <Pane fx:id="editPassword" layoutX="104.0" layoutY="98.0" prefHeight="320.0" prefWidth="563.0">
+               <children>
+                  <VBox prefHeight="229.0" prefWidth="557.0" spacing="15.0">
+                     <children>
+                        <MFXPasswordField fx:id="oldPassword" floatingText="Kata Sandi Lama" prefHeight="49.0" prefWidth="560.0" style="-mfx-main: black; -fx-border-color: gray;" />
+                        <MFXPasswordField fx:id="newPassword" floatingText="Kata Sandi Baru" prefHeight="49.0" prefWidth="560.0" style="-mfx-main: black; -fx-border-color: gray;" />
+                        <MFXPasswordField fx:id="newPasswordConfirm" floatingText="Konfirmasi Kata Sandi Baru" prefHeight="49.0" prefWidth="560.0" style="-mfx-main: black; -fx-border-color: gray;" />
+                        <HBox prefHeight="27.0" prefWidth="557.0" spacing="5.0">
+                           <children>
+                              <MFXTextField fx:id="OTPPassword" floatingText="OTP" prefHeight="27.0" prefWidth="210.0" style="-mfx-main: black; -fx-border-color: gray;" />
+                              <MFXButton fx:id="reqOTPPassword" onMouseClicked="#requestOTPPassword" prefHeight="49.0" prefWidth="103.0" text="Request OTP" />
+                              <MFXButton fx:id="validasiOTPPassword" onMouseClicked="#validationOTPPassword" prefHeight="49.0" prefWidth="103.0" text="Validasi OTP" />
+                              <MFXButton fx:id="changePasswordButton" buttonType="RAISED" onMouseClicked="#changePassword" prefHeight="49.0" prefWidth="125.0" style="-fx-background-color: black;" stylesheets="@../resources/css/styles.css" text="Ubah Kata Sandi" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <Text fx:id="OTPTimePassword" strokeType="OUTSIDE" strokeWidth="0.0" text="Kirim Ulang Kode Verifikasi (Dalam 12 Detik)">
+                           <VBox.margin>
+                              <Insets top="-15.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Italic" size="10.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+            <Pane fx:id="editProfile" layoutX="104.0" layoutY="98.0" prefHeight="320.0" prefWidth="563.0">
+               <children>
+                  <VBox prefHeight="229.0" prefWidth="557.0" spacing="15.0">
+                     <children>
+                        <MFXTextField fx:id="fullname" floatingText="Nama Lengkap" prefHeight="49.0" prefWidth="559.0" style="-mfx-main: black; -fx-border-color: gray;" />
+                        <MFXTextField fx:id="username" floatingText="Username Login" prefHeight="49.0" prefWidth="559.0" style="-mfx-main: black; -fx-border-color: gray;" />
+                        <HBox prefHeight="27.0" prefWidth="557.0" spacing="5.0">
+                           <children>
+                              <MFXTextField fx:id="OTPProfile" floatingText="OTP" prefHeight="27.0" prefWidth="210.0" style="-mfx-main: black; -fx-border-color: gray;" />
+                              <MFXButton fx:id="reqOTPProfile" onMouseClicked="#requestOTPProfile" prefHeight="49.0" prefWidth="103.0" text="Request OTP" />
+                              <MFXButton fx:id="validasiOTPProfile" onMouseClicked="#validationOTPProfile" prefHeight="49.0" prefWidth="103.0" text="Validasi OTP" />
+                              <MFXButton fx:id="changeProfileButton" buttonType="RAISED" prefHeight="49.0" prefWidth="125.0" style="-fx-background-color: black;" stylesheets="@../resources/css/styles.css" text="Ubah Profile" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <Text fx:id="OTPTimeProfile" strokeType="OUTSIDE" strokeWidth="0.0" text="Kirim Ulang Kode Verifikasi (Dalam 12 Detik)">
+                           <font>
+                              <Font name="System Italic" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="-15.0" />
+                           </VBox.margin>
+                        </Text>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+            <Pane fx:id="editEmail" layoutX="104.0" layoutY="98.0" prefHeight="320.0" prefWidth="563.0">
+               <children>
+                  <VBox prefHeight="229.0" prefWidth="557.0" spacing="15.0">
+                     <children>
+                        <HBox prefHeight="42.0" prefWidth="557.0" spacing="10.0">
+                           <children>
+                              <MFXTextField fx:id="oldEmail" floatingText="Email Lama" prefHeight="49.0" prefWidth="478.0" style="-mfx-main: black; -fx-border-color: gray;" />
+                              <MFXButton fx:id="changeEmailButton1" buttonType="RAISED" prefHeight="49.0" prefWidth="125.0" style="-fx-background-color: black;" stylesheets="@../resources/css/styles.css" text="Check Email" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <Text fx:id="warningEmail1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Check email terlebih dahulu">
+                           <font>
+                              <Font name="System Italic" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="-10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <MFXTextField fx:id="newEmail" floatingText="Email Baru" prefHeight="49.0" prefWidth="556.0" style="-mfx-main: black; -fx-border-color: gray;">
+                           <VBox.margin>
+                              <Insets top="-15.0" />
+                           </VBox.margin>
+                        </MFXTextField>
+                        <Text fx:id="warningEmail" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="OTP akan dikirimkan ke email baru">
+                           <font>
+                              <Font name="System Italic" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="-10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <HBox prefHeight="27.0" prefWidth="557.0" spacing="5.0">
+                           <children>
+                              <MFXTextField fx:id="OTPEmail" floatingText="OTP" prefHeight="27.0" prefWidth="210.0" style="-mfx-main: black; -fx-border-color: gray;" />
+                              <MFXButton fx:id="reqOTPEmail" onMouseClicked="#requestOTPEmail" prefHeight="49.0" prefWidth="103.0" text="Request OTP" />
+                              <MFXButton fx:id="validasiOTPEmail" onMouseClicked="#validationOTPEmail" prefHeight="49.0" prefWidth="103.0" text="Validasi OTP" />
+                              <MFXButton fx:id="changeEmailButton" buttonType="RAISED" prefHeight="49.0" prefWidth="125.0" style="-fx-background-color: black;" stylesheets="@../resources/css/styles.css" text="Ubah Email" textFill="WHITE" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="-15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <Text fx:id="OTPTimeEmail" strokeType="OUTSIDE" strokeWidth="0.0" text="Kirim Ulang Kode Verifikasi (Dalam 12 Detik)">
+                           <font>
+                              <Font name="System Italic" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="-15.0" />
+                           </VBox.margin>
+                        </Text>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>

@@ -121,6 +121,18 @@ public class AppViewController implements Initializable {
     }
 
     @FXML
+    private void dashboard(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/ac/id/unindra/spk/topsis/djingga/views/DashboardView.fxml"));
+            Parent newContent = loader.load();
+            pane.getChildren().setAll(newContent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void userManagement(MouseEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(
@@ -151,6 +163,20 @@ public class AppViewController implements Initializable {
                     getClass().getResource("/ac/id/unindra/spk/topsis/djingga/views/AlternativeView.fxml"));
             Parent newContent = loader.load();
             pane.getChildren().setAll(newContent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void settingView(MouseEvent event) {
+        try {
+            SettingViewController.idUser = idUser;
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/ac/id/unindra/spk/topsis/djingga/views/SettingView.fxml"));
+            Parent newContent = loader.load();
+            pane.getChildren().setAll(newContent);
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -294,5 +320,6 @@ public class AppViewController implements Initializable {
         hideCriteriaMenu();
         hideAlternativeMenu();
         hideTopsisMenu();
+        dashboard(null);
     }
 }

@@ -42,9 +42,10 @@ public class RegisterDAO implements RegisterService {
 
                 OTPModel.setStoredOTP(storedOTP);
                 OTPModel.setIdOTP(idOTP);
+                OTPModel.setIdUser(registerModel.getIdUser());
 
                 OTPService.setOTP(OTPModel, false);
-                OTPService.sendOTP(registerModel, OTPModel);
+                OTPService.sendOTP(OTPModel);
                 LoginViewController loginViewController = new LoginViewController();
                 loginViewController.runPane = true;
                 loginViewController.idUser = registerModel.getIdUser();

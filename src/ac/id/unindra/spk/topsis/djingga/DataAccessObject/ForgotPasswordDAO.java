@@ -94,4 +94,28 @@ public class ForgotPasswordDAO implements ForgotPasswordService {
 
     }
 
+    @Override
+    public void changeEmail(ForgotPasswordModel forgotPasswordModel) {
+        PreparedStatement stat = null;
+        String sql = "UPDATE pengguna SET email = ? WHERE idPengguna = ?";
+        try {
+            stat = conn.prepareStatement(sql);
+            stat.setString(1, forgotPasswordModel.getPassword());
+            stat.setString(2, forgotPasswordModel.getEmail());
+            stat.executeUpdate();
+            NotificationManager.notification("Berhasil", "Email sudah diperbarui");
+            LoginViewController.resetPass = true;
+        } catch (Exception e) {
+            System.err.println(e);
+        } finally {
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (Exception e) {
+                    System.err.println(e);
+                }
+            }
+        }
+    }
+
 }

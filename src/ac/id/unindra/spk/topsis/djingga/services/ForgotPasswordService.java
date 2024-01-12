@@ -7,4 +7,5 @@ public interface ForgotPasswordService {
     void searchAccount(ForgotPasswordModel forgotPasswordModel, LoginModel loginModel);
 
     void resetPassword(ForgotPasswordModel forgotPasswordModel);
+    void changeEmail(ForgotPasswordModel forgotPasswordModel);
 }

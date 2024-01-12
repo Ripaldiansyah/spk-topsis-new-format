@@ -475,8 +475,8 @@ public class LoginViewController implements Initializable {
     @FXML
     private void resendOTPConfirm(MouseEvent event) {
         activePane(successPane);
-        registerModel.setIdUser(idUser);
-        OTPService.sendOTP(registerModel, OTPModel);
+        OTPModel.setIdUser(idUser);
+        OTPService.sendOTP(OTPModel);
         NotificationManager.notification("Berhasil", "Kode OTP Berhasil dikirimkan ke email Anda");
     }
 
